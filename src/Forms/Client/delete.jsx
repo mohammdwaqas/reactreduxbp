@@ -41,7 +41,7 @@ const currencies = [
   }
 ];
 
-class OutlinedTextFields extends React.Component {
+class DeleteClient extends React.Component {
   state = {
     name: "",
     project: ""
@@ -87,14 +87,14 @@ class OutlinedTextFields extends React.Component {
           style={style.button}
           onClick={this.handleClick}
         >
-          Register new Client
+          Delete this client
         </Button>
       </div>
     );
   }
 }
 
-OutlinedTextFields.propTypes = {
+DeleteClient.propTypes = {
   classes: PropTypes.object.isRequired
 };
 let style = {
@@ -104,8 +104,8 @@ let style = {
     alignItems: "center",
     textAlign: "center",
     alignSelf: "center",
-    backgroundColor: "green",
+    backgroundColor: "red",
     marginLeft: 20
   }
 };
-export default withStyles(styles)(OutlinedTextFields);
+export default withStyles(styles)(DeleteClient);

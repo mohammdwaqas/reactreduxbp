@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import PhoneIcon from "@material-ui/icons/Phone";
+import PersonAdd from "@material-ui/icons/PersonAdd";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import PersonPinIcon from "@material-ui/icons/PersonPin";
 import HelpIcon from "@material-ui/icons/Help";
@@ -13,9 +13,16 @@ import ThumbDown from "@material-ui/icons/ThumbDown";
 import ThumbUp from "@material-ui/icons/ThumbUp";
 import Typography from "@material-ui/core/Typography";
 import OutlinedTextFields from "../Forms/Client/register";
+import FullWidthTabs from "../Forms/Client/tab";
+
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography
+      component="div"
+      style={{
+        padding: 8 * 3
+      }}
+    >
       {props.children}
     </Typography>
   );
@@ -57,7 +64,7 @@ class ScrollableTabsButtonForce extends React.Component {
             indicatorColor="primary"
             textColor="primary"
           >
-            <Tab label="Item One" icon={<PhoneIcon />} />
+            <Tab label="Item One" icon={<PersonAdd />} />
             <Tab label="Item Two" icon={<FavoriteIcon />} />
             <Tab label="Item Three" icon={<PersonPinIcon />} />
             <Tab label="Item Four" icon={<HelpIcon />} />
@@ -68,14 +75,7 @@ class ScrollableTabsButtonForce extends React.Component {
         </AppBar>
         {value === 0 && (
           <TabContainer>
-            <div>
-              <h1>Create New Client</h1>
-              <p>
-                Use this page to create & Manage Clients of System that needs to
-                be used in Expense Page
-              </p>
-              <OutlinedTextFields />
-            </div>
+            <FullWidthTabs />
           </TabContainer>
         )}
         {value === 1 && <TabContainer>Item Two</TabContainer>}
