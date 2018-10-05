@@ -4,6 +4,9 @@ import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import { TextField, Button } from "@material-ui/core";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
 
 const styles = theme => ({
   container: {
@@ -44,12 +47,19 @@ const currencies = [
 class OutlinedTextFields extends React.Component {
   state = {
     name: "",
-    project: ""
+    project: "",
+    status: true
   };
 
-  handleChange = name => event => {
+  handleTextChange = name => event => {
     this.setState({
       [name]: event.target.value
+    });
+  };
+
+  handleSwitchChange = name => event => {
+    this.setState({
+      [name]: event.target.checked
     });
   };
   handleClick = () => {
@@ -61,12 +71,18 @@ class OutlinedTextFields extends React.Component {
     return (
       <div>
         <form className={classes.container} noValidate autoComplete="on">
+          {/* <Switch
+            checked={this.state.checkedA}
+            onChange={this.handleSwitchChange("checkedA")}
+            value="checkedA"
+          /> */}
+
           <TextField
             id="outlined-name"
             label="Client Full Name"
             className={classes.textField}
             value={this.state.name}
-            onChange={this.handleChange("name")}
+            onChange={this.handleTextChange("name")}
             margin="normal"
             variant="outlined"
           />
@@ -76,11 +92,25 @@ class OutlinedTextFields extends React.Component {
             label="Project Name / Site Name"
             className={classes.textField}
             value={this.state.project}
-            onChange={this.handleChange("project")}
+            onChange={this.handleTextChange("project")}
             margin="normal"
             variant="outlined"
           />
         </form>
+
+        <p>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={this.state.checkedA}
+                onChange={this.handleSwitchChange("status")}
+                value="checkedA"
+              />
+            }
+            label="Client Status"
+          />
+        </p>
+
         <Button
           variant="contained"
           color="primary"

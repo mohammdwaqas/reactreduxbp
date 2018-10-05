@@ -24,20 +24,20 @@ const styles = theme => ({
 
 const currencies = [
   {
-    value: "USD",
-    label: "$"
+    value: "01",
+    label: "ASHRAF SAB"
   },
   {
-    value: "EUR",
-    label: "€"
+    value: "02",
+    label: "SHIBLEE COLLEGE"
   },
   {
-    value: "BTC",
-    label: "฿"
+    value: "03",
+    label: "BOOTA SAB"
   },
   {
-    value: "JPY",
-    label: "¥"
+    value: "04",
+    label: "CITY HOUSING"
   }
 ];
 
@@ -60,6 +60,28 @@ class DeleteClient extends React.Component {
 
     return (
       <div>
+        <TextField
+          id="standard-select-currency"
+          select
+          label="Select"
+          className={classes.textField}
+          value="SHIBLEE COLLEGE"
+          onChange={this.handleChange("currency")}
+          // SelectProps={{
+          //   MenuProps: {
+          //     className: classes.menu
+          //   }
+          // }}
+          helperText="Please select your currency"
+          margin="normal"
+        >
+          {currencies.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+
         <form className={classes.container} noValidate autoComplete="on">
           <TextField
             id="outlined-name"
