@@ -70,6 +70,16 @@ class OutlinedTextFields extends React.Component {
 
     return (
       <div>
+        <TextField
+          id="date"
+          label="Birthday"
+          type="date"
+          defaultValue="2017-05-24"
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true
+          }}
+        />
         <form className={classes.container} noValidate autoComplete="on">
           {/* <Switch
             checked={this.state.checkedA}
